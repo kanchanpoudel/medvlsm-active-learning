@@ -1,5 +1,18 @@
 # Active Learning for Medical Vision-Language Segmentation
 
+
+Deep Learning models combining multi-modal capabilities, particularly vision and language (vision-language models), have garnered significant attention lately, where
+Vision-language segmentation models (VLSMs) enable open-vocabulary segmentation conditioned on text.
+Although VLSMs are promising with their potential to allow humans to inject useful information as prompts to guide segmentation during inference, it requires finetuning foundation VLSMs with domain-specific medical data which is expensive and not readily available.
+Although there are various active-learning methods studied to identify the best samples to annotate when labeling new data under a limited budget, there is no work studying active learning in VLSMs.
+%in Many work explore active-learning to help helps select most promising  In such a scenario, leveraging the language capabilities of large models trained on the natural domain and adapting them to the medical domain with very few annotated training examples would be very helpful.
+In this paper, we propose a novel Active Learning-Based Few-Shot Learning approach tailored for VLSMs that assists in selecting the most informative few examples for few-shot learning by leveraging the multimodal image-text understanding of such models.
+Our results show that leveraging diverse prompts to generate multiple outputs from VLSMs and using a consistency-based approach to select samples provide better samples.
+
+
+
+
+
 This repository contains experiments on active learning for few-shot adaptation of vision-language segmentation models to medical images.
 
 The main idea is to use the model's response to different text prompts as a measure of uncertainty. For the same image, we generate segmentation masks using several prompts referring to the same object. If the predictions disagree strongly, the image is treated as informative and selected for the next fine-tuning round.
